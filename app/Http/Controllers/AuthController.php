@@ -34,11 +34,9 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-
         if (! $token = auth()->attempt($validator->validated())) {
             return response()->json(['error' => 'Either email or password is wrong.'], 401);
         }
-
         return $this->createNewToken($token);
     }
 
@@ -72,7 +70,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'User successfully registered',
-            'user' => $request->name
+            'user' => $dataInsert
         ], 201);
     }
 

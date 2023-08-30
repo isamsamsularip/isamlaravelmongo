@@ -30,8 +30,6 @@ Route::group([
     Route::get('user-profile', 'App\Http\Controllers\AuthController@userProfile');
 });
 
-Route::get('articles', 'App\Http\Controllers\ArticleController@index');
-Route::get('articles/{article}', 'App\Http\Controllers\ArticleController@show');
-Route::post('articles', 'App\Http\Controllers\ArticleController@store');
-Route::put('articles/{article}', 'App\Http\Controllers\ArticleController@update');
-Route::delete('articles/{article}', 'App\Http\Controllers\ArticleController@delete');
+Route::resource('kendaraans', 'App\Http\Controllers\KendaraanController');
+
+Route::resource('penjualans', 'App\Http\Controllers\PenjualanController');
